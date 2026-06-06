@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mr Doyle Maths</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER (loaded via JS) -->
+    <div id="header"></div>
+
+    <main>
+      <div class="main-content">
+        <div class="intro">
+          <h1>Bespoke handcrafted resources</h1>
+          <p>
+            Welcome to Mr Doyle Maths! Improve your maths skills with structured
+            resources.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>GCSE Past Papers</h2>
+
+          <!-- REQUIRED FOR SIDE PANEL -->
+          <div class="container"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SIDE PANEL -->
+    <div id="side-panel" class="side-panel">
+      <div class="side-panel-content">
+        <button class="close-btn">&times;</button>
+        <div id="panel-content"></div>
+      </div>
+    </div>
+
+    <!-- FOOTER (loaded via JS) -->
+    <div id="footer"></div>
+
+    <!-- =======================
+       SCRIPTS (ORDER MATTERS)
+  ======================= -->
+
+    <!-- 1. BOARD DATA -->
+    <script src="js/data/boards/aqa.js"></script>
+    <script src="js/data/boards/edexcel.js"></script>
+    <script src="js/data/boards/ocr.js"></script>
+    <script src="js/data/boards/aqa_further_maths.js"></script>
+
+    <!-- 2. COMBINED DATA -->
+    <script src="js/data/indexData.js"></script>
+
+    <!-- 3. COMPONENTS (HEADER + FOOTER) -->
+    <script src="js/loadComponents.js"></script>
+
+    <!-- 4. MAIN FUNCTIONALITY -->
+    <script src="js/sidepanel.js"></script>
+  </body>
+</html>

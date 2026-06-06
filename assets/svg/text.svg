@@ -1,0 +1,22 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect x="20" y="10" width="70" height="95" rx="8" fill="white" stroke="#007BFF" stroke-width="3"/>
+
+  <!-- Folded corner -->
+  <path d="M75 10 L90 25 L75 25 Z" fill="#DCEBFF"/>
+
+  <!-- AQA title -->
+  <text x="35" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#007BFF">
+    AQA
+  </text>
+
+  <!-- Lines -->
+  <line x1="32" y1="48" x2="78" y2="48" stroke="#B8C7E6" stroke-width="3" stroke-linecap="round"/>
+  <line x1="32" y1="60" x2="78" y2="60" stroke="#B8C7E6" stroke-width="3" stroke-linecap="round"/>
+  <line x1="32" y1="72" x2="78" y2="72" stroke="#B8C7E6" stroke-width="3" stroke-linecap="round"/>
+  <line x1="32" y1="84" x2="65" y2="84" stroke="#B8C7E6" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Tick circle -->
+  <circle cx="85" cy="88" r="12" fill="#007BFF"/>
+  <path d="M80 88 L84 92 L91 84" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

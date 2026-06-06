@@ -1,0 +1,468 @@
+/* =======================
+   GLOBAL
+======================= */
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #1f2937;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =======================
+   TYPOGRAPHY
+======================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  color: #1e3a5f;
+}
+
+h2 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  color: #245382;
+}
+
+h3 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: #334155;
+}
+
+p,
+a,
+li,
+button,
+input {
+  font-family: inherit;
+  font-weight: 400;
+  color: #374151;
+}
+
+/* =======================
+   HEADER / FOOTER
+======================= */
+header {
+  padding: 16px 32px;
+  background-color: rgba(244, 244, 246, 0.96);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+footer {
+  padding: 16px 32px;
+  background-color: rgba(244, 244, 246, 0.96);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* JS injection fix */
+#header,
+#footer {
+  width: 100%;
+}
+
+#header header,
+#footer footer {
+  width: 100%;
+}
+
+/* Header layout */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Logo */
+header .logo {
+  width: 180px;
+  height: auto;
+  max-height: 60px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+header .logo:hover {
+  transform: scale(1.05);
+}
+
+/* =======================
+   MAIN CONTENT
+======================= */
+main {
+  position: relative;
+  padding: 40px 32px;
+  background-image: url("../images/Background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 400px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 🔥 UPGRADE 2 — CONTAINER WIDTH */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Existing spacing */
+.intro {
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+.section {
+  margin-top: 40px;
+}
+
+/* =======================
+   NAVIGATION
+======================= */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+nav ul > li {
+  position: relative;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  display: inline-block;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+nav > ul > li > a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #007bff;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+nav > ul > li > a:hover::after {
+  width: 100%;
+}
+
+nav > ul > li > a:hover {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Dropdown */
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(244, 244, 246, 0.99);
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+nav ul li:hover > ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+nav ul li ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+nav ul li ul li a:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+  border-radius: 8px;
+}
+
+/* =======================
+   BOXES / GRID
+======================= */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.box {
+  position: relative;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  font-size: 1.4em;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  transition:
+    all 0.3s ease,
+    background 0.25s ease;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.box:hover::after {
+  opacity: 1;
+}
+
+.box:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+.active-box {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+/* Board colours */
+#aqa {
+  background: linear-gradient(145deg, #4a90e2, #357abd);
+}
+#aqa:hover,
+#aqa.active-box {
+  background: linear-gradient(145deg, #357abd, #2b5d9a);
+}
+
+#aqa_further_maths {
+  background: linear-gradient(145deg, #e12c2c, #b92222);
+}
+#aqa_further_maths:hover,
+#aqa_further_maths.active-box {
+  background: linear-gradient(145deg, #b72626, #981919);
+}
+
+#edexcel {
+  background: linear-gradient(145deg, #e28c4a, #c36f2e);
+}
+#edexcel:hover,
+#edexcel.active-box {
+  background: linear-gradient(145deg, #c36f2e, #a85b1f);
+}
+
+#ocr {
+  background: linear-gradient(145deg, #9b6fc0, #7b4da0);
+}
+#ocr:hover,
+#ocr.active-box {
+  background: linear-gradient(145deg, #7b4da0, #5e3980);
+}
+
+/* =======================
+   TOPIC COLOURS
+======================= */
+#angles {
+  background: linear-gradient(145deg, #e3ca71, #c9b05b);
+}
+#angles:hover,
+#angles.active-box {
+  background: linear-gradient(145deg, #c9b05b, #b69c49);
+}
+
+#pythagoras {
+  background: linear-gradient(145deg, #8fd9bf, #7cc1a5);
+}
+#pythagoras:hover,
+#pythagoras.active-box {
+  background: linear-gradient(145deg, #7cc1a5, #68a78e);
+}
+
+/* =======================
+   SIDE PANEL
+======================= */
+.side-panel {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0.9;
+  pointer-events: none;
+  transition:
+    opacity 0.7s ease,
+    background-color 0.7s ease;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 10000;
+}
+
+.side-panel.open {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+.side-panel-content {
+  width: 75%;
+  background-color: #f9f9f9;
+  padding: 24px;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+  transform: translateX(100%);
+  transition: transform 0.7s ease;
+}
+
+.side-panel.open .side-panel-content {
+  transform: translateX(0);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.panel-link {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+  transition: all 0.2s ease;
+}
+
+.panel-link:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+  transform: translateX(4px);
+}
+
+.icon-group {
+  display: flex;
+  gap: 6px;
+}
+
+.panel-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.panel-icon:hover {
+  transform: scale(1.1);
+}
+
+/* =======================
+   UTILITIES
+======================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #007bff;
+  color: #fff;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.box:active {
+  transform: translateY(-2px) scale(0.98);
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Whiteboard</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/whiteboard.css" />
+  </head>
+
+  <body>
+    <div id="header"></div>
+
+    <main>
+      <!-- CANVAS -->
+      <canvas id="canvas"></canvas>
+
+      <!-- TOOLBAR -->
+      <div id="toolbar" class="toolbar">
+        <button id="paint">
+          <img src="assets/svg/ic_pen.svg" class="tool-icon" />
+        </button>
+
+        <button id="eraser">
+          <img src="assets/svg/ic_eraser.svg" class="tool-icon" />
+        </button>
+
+        <input type="range" id="stroke-size" min="1" max="50" value="5" />
+
+        <div class="colour_holder">
+          <input type="color" id="stroke-color-picker" />
+        </div>
+
+        <div class="colour_holder">
+          <input type="color" id="background-color-picker" value="#ffffff" />
+        </div>
+
+        <button id="undo-btn">
+          <img src="assets/svg/ic_undo.svg" class="tool-icon" />
+        </button>
+
+        <button id="clear-canvas">
+          <img src="assets/svg/ic_bin.svg" class="tool-icon" />
+        </button>
+
+        <button id="ruler-btn">
+          <img src="assets/svg/ic_ruler.svg" class="tool-icon" />
+        </button>
+      </div>
+
+      <!-- RULER -->
+      <div id="ruler" class="ruler">
+        <div class="ruler-body">
+          <img src="assets/images/WBruler.png" id="ruler-img" />
+        </div>
+
+        <!-- 🔥 LINE HANDLES -->
+        <div id="line-handle-top" class="line-handle top"></div>
+        <div id="line-handle-bottom" class="line-handle bottom"></div>
+
+        <!-- ROTATE -->
+        <div id="rotate-handle" class="rotate-handle">
+          <img src="assets/svg/ic_rotate.svg" class="tool-icon" />
+        </div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="js/loadComponents.js"></script>
+    <script src="assets/js/whiteboard.js"></script>
+  </body>
+</html>
