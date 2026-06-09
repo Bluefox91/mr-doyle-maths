@@ -13,7 +13,9 @@ function initSidepanel() {
 
     box.id = name.toLowerCase().replace(/\s/g, "_");
     box.className = "box";
-    box.textContent = name;
+    box.innerHTML = `
+    <span class="box-title">${name}</span>
+    `;
 
     box.addEventListener("click", () => {
       // ACTIVE STATE

@@ -313,7 +313,18 @@ nav ul li ul li a:hover {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
   z-index: 10;
 }
-
+.box::before {
+  content: "Explore";
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
 /* Board colours */
 #aqa {
   background: linear-gradient(145deg, #4a90e2, #357abd);
