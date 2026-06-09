@@ -19,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   animation: fadeIn 0.3s ease-out;
+  letter-spacing: -0.01em;
 }
 
 /* =======================
@@ -37,7 +38,7 @@ h6 {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   line-height: 1.1;
   color: #1e3a5f;
 }
@@ -255,7 +256,7 @@ nav ul li ul li a:hover {
 .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 28px; /* slightly more breathing room */
   justify-content: flex-start;
   margin-top: 20px;
 }
@@ -263,61 +264,79 @@ nav ul li ul li a:hover {
 .box {
   position: relative;
   overflow: hidden;
+  will-change: transform;
   width: 220px;
   height: 240px;
-  font-size: 1.2em;
-  border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  font-size: 1.15em;
+
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
 
   display: flex;
-  flex-direction: column; /* 🔥 needed for clean layout */
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 
   text-align: left;
   padding: 20px;
+
   color: #fff;
-  font-weight: 600;
+  font-weight: 500; /* slightly softer than 600 */
+
   cursor: pointer;
 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  /* cleaner, more “designed” depth */
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 
   transition:
-    all 0.3s ease,
-    background 0.25s ease;
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
 }
 
-/* shimmer effect */
+/* shimmer effect (disabled for cleaner SaaS look) */
 .box::after {
-  content: "";
+  content: "Explore";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
+
   background: linear-gradient(
     120deg,
     transparent,
     rgba(255, 255, 255, 0.25),
     transparent
   );
+
   transform: rotate(25deg);
-  opacity: 0;
+  opacity: 0.08;
+
   transition: opacity 0.3s ease;
+
+  display: none; /* completely removed visually */
 }
 
-.box:hover::after {
-  opacity: 1;
-}
-
+/* hover state = subtle premium lift */
 .box:hover {
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.32),
+    0 10px 22px rgba(0, 0, 0, 0.20);
 }
 
 .active-box {
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+
+  box-shadow:
+    0 26px 60px rgba(0, 0, 0, 0.38),
+    0 12px 28px rgba(0, 0, 0, 0.22);
+
   z-index: 10;
 }
 
@@ -352,13 +371,21 @@ nav ul li ul li a:hover {
 
   height: 1px;
   margin-top: 10px;
-
-  /* aligns with box padding automatically */
   width: 100%;
 
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.85);
+
+  /* stronger glow */
+ .box-title::after {
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 14px rgba(255, 255, 255, 0.6),
+    0 0 24px rgba(255, 255, 255, 0.45),
+    0 0 40px rgba(255, 255, 255, 0.25);
 }
+  border-radius: 2px;
+}
+
 /* Board colours */
 #aqa {
   background: linear-gradient(145deg, #4a90e2, #357abd);
@@ -597,8 +624,15 @@ body.panel-open {
 #changing-word {
   display: inline-block;
   transform-origin: center;
-
+  margin-left: 6px;
   color: #007bff;
+  margin-left: 6px;
+  transition:
+    transform 1.2s ease,
+    opacity 1.2s ease;
+  font-weight: 700;
+}
 
-  transition: transform 1.2s ease, opacity 1.2s ease;
+.intro h1 {
+  margin-bottom: 12px;
 }
